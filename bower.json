@@ -1,0 +1,29 @@
+{
+  "name": "tech-layout",
+  "description": "tech layout",
+  "main": "index.js",
+  "authors": [
+    "zdeněk suda @ zdeneksuda.cz"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "tech-layout"
+  ],
+  "homepage": "https://github.com/zsuda/tech-layout",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "www/vendors/bower"
+  ],
+  "dependencies": {
+    "jquery": "jQuery#1.11.3",
+    "respond": "~1.4.2",
+    "bourbon": "~4.2.6"
+  }
+}
