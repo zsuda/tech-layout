@@ -58,7 +58,7 @@ $headerBg: #e6e6e6;
 			width: 100%;
 			padding: 5px 0;
 
-			&:hover {
+			&:hover, &.active {
 				span {
 					&.icon {
 						background-position-y: bottom;
