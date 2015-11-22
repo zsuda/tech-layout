@@ -1,0 +1,54 @@
+.tabs {
+	margin-left: -$mobileOffset;
+	margin-right: -$mobileOffset;
+
+	.tabBookmarks {
+		display: table;
+		width: 100%;
+
+		.item {
+			@include fontWeight(500);
+			display: table-cell;
+			vertical-align: middle;
+			border: 2px solid #818181;
+			width: 50%;
+			padding: 16px 20px 17px;
+			cursor: pointer;
+			background-color: #dbdad6;
+			//padding: 16px 10px 17px 12px;
+
+			&.first {
+				border-left: 0;
+			}
+
+			&.last {
+				border-right: 0;
+			}
+
+			&:hover, &.active {
+				border-color: #000;
+
+				//padding-left: 25px;
+			}
+
+			&:hover {
+				background-color: #d0d0d0;
+			}
+
+			&.active {
+				background-color: #c1c1c1;
+				border-bottom-color: #c1c1c1;
+				color: #840b1d;
+			}
+		}
+	}
+
+	.tabContent {
+		padding: 30px $mobileOffset 15px;
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}

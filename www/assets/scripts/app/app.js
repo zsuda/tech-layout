@@ -1,4 +1,6 @@
 var app = app || {};
-$(window).on('load', function() {
+var tabs = require('./tabs');
 
+$(window).on('load', function() {
+	tabs.init();
 });

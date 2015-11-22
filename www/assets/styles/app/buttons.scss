@@ -1,0 +1,40 @@
+.button {
+	display: table;
+	width: 100%;
+	padding: 12px 27px;
+	text-align: center;
+	cursor: pointer;
+	
+	&-brown {
+		@include verticalGradient(#936132, #bb8049, 0, 50%);
+		color: $white;
+		
+		&:hover {
+			@include verticalGradient(#bb8049, #936132, 0, 50%);
+		}
+	}
+
+	&-with-arrow {
+		position: relative;
+
+		.arrow {
+			position: static;
+		}
+
+		&.tal {
+			.arrow {
+				&:after {
+					right: 14px;
+				}
+			}
+		}
+
+		&.tar {
+			.arrow {
+				&:before {
+					left: 14px;
+				}
+			}
+		}
+	}
+}

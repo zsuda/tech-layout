@@ -1,0 +1,25 @@
+@mixin fontWeight($weight) {
+	font-weight: $weight;
+}
+
+@mixin verticalGradient($startColor, $endColor, $startPosition: 0, $endPosition: 100%) {
+	background: $startColor; /* Old browsers */
+	background: -moz-linear-gradient(top,  $startColor $startPosition, $endColor $endPosition); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  $startColor $startPosition,$endColor $endPosition); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  $startColor $startPosition,$endColor $endPosition); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin horizontalGradient($startColor, $endColor, $startPosition: 0, $endPosition: 100%) {
+	background: $startColor; /* Old browsers */
+	background: -moz-linear-gradient(left,  $startColor $startPosition, $endColor $endPosition); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  $startColor $startPosition,$endColor $endPosition); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  $startColor $startPosition,$endColor $endPosition); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin dropShadow ($x: 0, $y: 0, $blur: 5px, $dist: 0, $r: 0, $g: 0, $b: 0, $a: 1) {
+	-webkit-box-shadow: $x $y $blur $dist rgba($r, $g, $b, $a);
+	-moz-box-shadow: $x $y $blur $dist rgba($r, $g, $b, $a);
+	box-shadow: $x $y $blur $dist rgba($r, $g, $b, $a);
+}

@@ -1,0 +1,22 @@
+.problems {
+	@include verticalGradient(#c1c1c1, #dbdad6);
+	padding-top: 24px;
+	padding-bottom: 40px;
+
+	.item {
+		padding-bottom: 51px;
+
+		&-with-image {
+			h3 {
+				padding-bottom: 10px;
+			}
+		}
+
+		img {
+			vertical-align: bottom;
+			margin-right: 14px;
+			position: relative;
+			top: -1px;
+		}
+	}
+}

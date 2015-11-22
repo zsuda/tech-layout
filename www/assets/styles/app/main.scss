@@ -1,0 +1,50 @@
+// reset
+html, body, ul, li, input, textarea, form, p, h1, h2, h3, h4 {
+	padding: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	padding-bottom: 51px;
+}
+
+// <ie9 elements
+header, nav, section, article, footer {
+	display: block;
+}
+
+* {
+	@include box-sizing(border-box);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+a {
+	color: $black;
+
+	img {
+		border: 0;
+	}
+}
+
+// mobile device padding
+.centering {
+	padding-left: $mobileOffset;
+	padding-right: $mobileOffset;
+}
+
+.clear {
+	//clear: both;
+}
+
+.tal {
+	text-align: left;
+}
+
+.tar {
+	text-align: right;
+}

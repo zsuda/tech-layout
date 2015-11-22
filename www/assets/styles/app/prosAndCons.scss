@@ -1,0 +1,58 @@
+$prosAndConsBg: #fff;
+
+.prosAndCons {
+	background-color: $prosAndConsBg;
+
+	svg {
+		margin: 0 auto 10px;
+		//margin: 0 auto 20px;
+		display: block;
+		@include size(40px);
+	}
+
+	ul {
+		li {
+			//padding-bottom: 18px;
+		}
+	}
+
+	.horse {
+		.animal {
+			img {
+				float: right;
+			}
+		}
+	}
+
+	.seal {
+		.animal {
+			img {
+				float: left;
+			}
+		}
+	}
+
+	.animal {
+		img {
+			@include size(auto 120px);
+		}
+
+		&:after {
+			content:'';
+			display:block;
+			clear: both;
+		}
+	}
+
+	.list {
+		padding-bottom: 50px;
+
+		&.last {
+			padding-bottom: 0;
+		}
+	}
+
+	.item {
+		padding-bottom: 20px;
+	}
+}

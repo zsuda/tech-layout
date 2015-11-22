@@ -1,0 +1,45 @@
+.form {
+	label {
+		@include fontWeight(500);
+		display: block;
+		cursor: pointer;
+		padding: 0 0 13px 10px;
+	}
+
+	input, textarea {
+		border: 2px solid #936132;
+		font-size: 18px;
+		font-family: inherit;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-bottom: 15px;
+	}
+
+	input {
+		@include size(100% 53px);
+
+		&[type=submit] {
+			@include fontWeight(600);
+			text-transform: uppercase;
+			background-color: #936132;
+			color: $white;
+			margin-top: 16px;
+			height: auto;
+			padding: 10px 32px;
+		}
+	}
+
+	textarea {
+		@include size(100% 157px);
+		display: block;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		resize: none;
+	}
+
+	.item {
+		&-message {
+			margin-top: 14px;
+		}
+	}
+}

@@ -1,0 +1,102 @@
+$headerBg: #e6e6e6;
+
+.header {
+	background-color: $headerBg;
+
+	.logo {
+		text-align: center;
+		padding: 8px 0 10px;
+
+		a {
+			text-decoration: none;
+		}
+
+		img {
+			vertical-align: middle;
+			@include size(auto 60px);
+			//float: left;
+		}
+
+		span {
+			text-align: left;
+			display: inline-block;
+			position: relative;
+			top: 15px;
+			//top: 19px;
+			left: 6px;
+		}
+
+		&:after {
+			//content:'';
+			//display:block;
+			//clear: both;
+		}
+	}
+
+	nav {
+		@include dropShadow();
+		background-color: $headerBg;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+
+		ul {
+			@extend .noDots;
+		}
+
+		li {
+			float: left;
+			width: 25%;
+		}
+
+		a {
+			font-size: 10px;
+			text-align: center;
+			display: block;
+			width: 100%;
+			padding: 5px 0;
+
+			&:hover {
+				span {
+					&.icon {
+						background-position-y: bottom;
+					}
+				}
+			}
+		}
+
+		span {
+			display: block;
+
+			&.icon {
+				background: transparent url('#{$imgPath}sprite.png') 0 0 no-repeat;
+				background-size: 82px auto;
+				margin: 3px auto;
+				height: 23px;
+				//height: 46px;
+
+				&-question {
+					width: 20px;
+					background-position: 0 0;
+				}
+
+				&-prosAndCons {
+					width: 15px;
+					background-position: -20px 0;
+				}
+
+				&-stupidity {
+					width: 30px;
+					background-position: -35px 0;
+				}
+
+				&-shout {
+					width: 18px;
+					background-position: -65px 0;
+				}
+			}
+		}
+	}
+}

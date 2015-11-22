@@ -1,0 +1,8 @@
+.chat {
+	@include verticalGradient(#c1c1c1, #dbdad6);
+
+	.tabs {
+		position: relative;
+		//top: -59px;
+	}
+}

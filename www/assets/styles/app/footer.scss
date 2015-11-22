@@ -1,0 +1,13 @@
+.footer {
+	padding: 20px 0;
+	background-color: #936132;
+	color: $white;
+
+	a {
+		@include fontWeight(400);
+		padding: 10px 0;
+		display: inline-block;
+		margin-right: 30px;
+		color: inherit;
+	}
+}
