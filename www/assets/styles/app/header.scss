@@ -44,11 +44,27 @@ $headerBg: #e6e6e6;
 
 		ul {
 			@extend .noDots;
+			position: relative;
+
+			&:after {
+				clear: both;
+				content: '';
+				display: block;
+			}
 		}
 
 		li {
 			float: left;
 			width: 25%;
+
+			&.border {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 3px;
+				background-color: #ffbb6c;
+				width: 100px;
+			}
 		}
 
 		a {
@@ -57,8 +73,12 @@ $headerBg: #e6e6e6;
 			display: block;
 			width: 100%;
 			padding: 5px 0;
+			text-decoration: none;
+			@include fontWeight(400);
 
 			&:hover, &.active {
+				text-decoration: none;
+
 				span {
 					&.icon {
 						background-position-y: bottom;
@@ -75,7 +95,6 @@ $headerBg: #e6e6e6;
 				background-size: 82px auto;
 				margin: 3px auto;
 				height: 23px;
-				//height: 46px;
 
 				&-question {
 					width: 20px;
@@ -95,6 +114,185 @@ $headerBg: #e6e6e6;
 				&-shout {
 					width: 18px;
 					background-position: -65px 0;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $smallTablet) {
+	.header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		@include dropShadow();
+		z-index: 101;
+
+		&:after {
+			content:'';
+			display:block;
+			clear: both;
+		}
+
+		.logo {
+			float: left;
+		}
+
+		nav {
+			position: static;
+			float: right;
+			width: auto;
+			background-color: transparent;
+			@include dropShadow(0, 0, 0, 0, 0, 0, 0, 0);
+
+			li {
+				width: auto;
+				margin: 0 15px;
+			}
+
+			a {
+				font-size: 14px;
+				padding-top: 15px;
+			}
+
+			span {
+				&.icon {
+					background: transparent url('#{$imgPath}sprite.png') 0 0 no-repeat;
+					background-size: 123px auto;
+					margin: 3px auto;
+					height: 34px;
+					//height: 46px;
+
+					&-question {
+						width: 32px;
+						background-position: 0 0;
+					}
+
+					&-prosAndCons {
+						width: 22px;
+						background-position: -32px 0;
+					}
+
+					&-stupidity {
+						width: 42px;
+						background-position: -54px 0;
+					}
+
+					&-shout {
+						width: 30px;
+						background-position: -96px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $bigTablet) {
+	.header {
+		nav {
+			a {
+				font-size: 18px;
+			}
+
+			span {
+				display: inline-block;
+
+				&.icon {
+					background: transparent url('#{$imgPath}sprite.png') 0 0 no-repeat;
+					background-size: auto auto;
+					margin: 3px 5px 3px auto;
+					height: 45px;
+
+					&-question {
+						width: 40px;
+					}
+
+					&-prosAndCons {
+						width: 32px;
+						background-position: -40px 0;
+					}
+
+					&-stupidity {
+						width: 56px;
+						background-position: -72px 0;
+					}
+
+					&-shout {
+						width: 36px;
+						background-position: -130px 0;
+					}
+				}
+
+				&.text {
+					max-width: 60px;
+					text-align: left;
+					position: relative;
+					top: -7px
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $desktop) {
+	.header {
+		position: static;
+		@include dropShadow(0 0 0 0 0 0 0);
+
+		.logo {
+			margin-left: -2px;
+			
+			img {
+				height: auto;
+			}
+
+			span {
+				top: 19px;
+			}
+		}
+
+		nav {
+			margin-right: -20px;
+
+			li {
+				margin: 0;
+				
+				&.border {
+					height: 6px;
+				}
+			}
+
+			a {
+				padding: 35px 26px 0;
+			}
+
+			span {
+				position: relative;
+				
+				&.icon {
+					&-consAndPros {
+						left: 11px;
+					}
+
+					&-stupidity, &-shout {
+						left: 3px;
+					}
+				}
+
+				&.text {
+					&-consAndPros {
+						left: 8px;
+					}
+
+					&-stupidity {
+						left: 6px;
+					}
+
+					&-shout {
+						left: -2px;
+					}
 				}
 			}
 		}

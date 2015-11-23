@@ -11,11 +11,16 @@
 
 	<link rel="stylesheet" href="www/assets/styles/default.css" />
 	<link href='https://fonts.googleapis.com/css?family=Dosis:300,400,500,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 	<script type="text/javascript" src="www/vendors/bower/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="www/assets/scripts/scripts.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
 
 	<!--[if lt IE 9]>
+	<script type="text/javascript" src="www/vendors/bower/respond/dest/respond.min.js"></script>
 	<script>
 		document.createElement('header');
 		document.createElement('nav');
@@ -29,11 +34,11 @@
 </head>
 
 <body>
-	<header class="header">
+	<header class="header" id="home">
 		<div class="centering">
 			<div class="logo">
 				<h1>
-					<a href="#" title="úvodní stránka Who is a better pet?">
+					<a href="#home" title="úvodní stránka Who is a better pet?">
 						<img src="www/assets/images/logo.png" width="73" height="94" alt="logo Who is a better pet?" />
 						<span>Who is a <br />better pet?</span>
 					</a>
@@ -44,27 +49,27 @@
 				<nav>
 					<ul>
 						<li>
-							<a href="#question" class="active" title="Basic question">
+							<a href="#question" title="Basic question">
 								<span class="icon icon-question"></span>
-								<span>Basic question</span>
+								<span class="text">Basic question</span>
 							</a>
 						</li>
 						<li>
 							<a href="#prosAndCons" title="Pros and Cons">
 								<span class="icon icon-prosAndCons"></span>
-								<span>Pros and Cons</span>
+								<span class="text">Pros and&nbsp;Cons</span>
 							</a>
 						</li>
 						<li>
 							<a href="#stupidity" title="People's stupidity">
 								<span class="icon icon-stupidity"></span>
-								<span>People's stupidity</span>
+								<span class="text">People's stupidity</span>
 							</a>
 						</li>
 						<li>
 							<a href="#chat" title="Shout it out">
 								<span class="icon icon-shout"></span>
-								Shout it out
+								<span class="text">Shout it&nbsp;out</span>
 							</a>
 						</li>
 					</ul>
@@ -74,9 +79,7 @@
 	</header>
 
 	<section class="mainCarousel" id="question">
-		<div class="centering">
-			carousel
-		</div>
+		<img src="www/assets/images/img-carousel-top-1.jpg" alt="první slide" />
 	</section>
 
 	<section class="prosAndCons" id="prosAndCons">
@@ -92,11 +95,10 @@
 			</div>
 			<div class="centering">
 				<div class="list">
-					<article class="item">
+					<article class="item odd">
 						<svg height="75" width="75" viewBox="0 0 100 100">
 							<polygon points="57,0 70,4 42,100" style="fill:#048c0a;" />
 							<polygon points="0,43 0,57 100,47" style="fill:#048c0a;" />
-							Sorry, your browser does not support inline SVG.
 						</svg>
 
 						<ul class="noDots">
@@ -109,7 +111,7 @@
 						</ul>
 					</article>
 
-					<article class="item">
+					<article class="item even">
 						<svg height="75" width="75" viewBox="0 0 100 100">
 							<polygon points="0,43 0,57 100,47" style="fill:#ab2431;" />
 							Sorry, your browser does not support inline SVG.
@@ -134,7 +136,7 @@
 			</div>
 			<div class="centering">
 				<div class="list last">
-					<article class="item">
+					<article class="item odd">
 						<svg height="75" width="75" viewBox="0 0 100 100">
 							<polygon points="57,0 70,4 42,100" style="fill:#048c0a;" />
 							<polygon points="0,43 0,57 100,47" style="fill:#048c0a;" />
@@ -151,7 +153,7 @@
 						</ul>
 					</article>
 
-					<article class="item">
+					<article class="item even">
 						<svg height="75" width="75" viewBox="0 0 100 100">
 							<polygon points="0,43 0,57 100,47" style="fill:#ab2431;" />
 							Sorry, your browser does not support inline SVG.
@@ -174,11 +176,11 @@
 	<section class="problems" id="stupidity">
 		<div class="centering">
 			<h2>
-				What people think about this sophisticated problem?
+				What people think about this <br />sophisticated problem?
 			</h2>
 
 			<div class="list">
-				<article class="item">
+				<article class="item odd">
 					<h3>Jonas Horselover</h3>
 					<p>
 						Doesnt know but had sex with a horse and it was fine he thinks...
@@ -187,7 +189,7 @@
 					<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
 				</article>
 
-				<article class="item">
+				<article class="item even">
 					<h3>Jonas Horselover</h3>
 					<p>
 						Doesnt know but had sex with a horse and it was fine he thinks...
@@ -196,7 +198,7 @@
 					<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
 				</article>
 
-				<article class="item item-with-image">
+				<article class="item odd item-with-image">
 					<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
 					<p>
 						Tried to ride a seal once and it was NOT a good idea. Almost got arrested for animal harrasment.
@@ -205,7 +207,7 @@
 					<a href="#" class="button button-brown button-with-arrow tdu tar" title="odkaz na See the whole report"><span class="arrow arrow-before">See the whole report</span></a>
 				</article>
 
-				<article class="item item-with-image">
+				<article class="item even item-with-image">
 					<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
 					<p>
 						Tried to ride a seal once and it was NOT a good idea
@@ -232,24 +234,24 @@
 				<div class="tabContent" data-tab-content="seal">
 					<div class="form">
 						<form>
-							<div class="item">
-								<label for="name">Your Name</label>
-								<input type="text" id="name" />
+							<div class="item item-name">
+								<label for="name-seal">Your Name</label>
+								<input type="text" id="name-seal" data-errorMsg="Vyplňte jméno" />
 							</div>
 
-							<div class="item">
-								<label for="date">Date? (will you go with me?)</label>
-								<input type="text" id="date" />
+							<div class="item item-date">
+								<label for="date-seal">Date? (will you go with me?)</label>
+								<input type="text" id="date-seal" class="datepicker" data-errorMsg="Vyplňte datum" />
 							</div>
 
-							<div class="item">
-								<label for="mail">Your e-mail</label>
-								<input type="email" id="mail" />
+							<div class="item item-mail">
+								<label for="mail-seal">Your e-mail</label>
+								<input type="email" class="mail" id="mail-seal" data-errorMsg="Vyplňte e-mail" />
 							</div>
 
 							<div class="item item-message">
-								<label for="message">Your message</label>
-								<textarea id="message"></textarea>
+								<label for="message-seal">Your message</label>
+								<textarea id="message-seal" data-errorMsg="Vyplňte zprávu"></textarea>
 							</div>
 
 							<div class="item">
@@ -262,24 +264,24 @@
 				<div class="tabContent" data-tab-content="horse">
 					<div class="form">
 						<form>
-							<div class="item">
-								<label for="name">Your Name</label>
-								<input type="text" id="name" />
+							<div class="item item-name">
+								<label for="name-horse">Your Name</label>
+								<input type="text" id="name-horse" data-errorMsg="Vyplňte jméno" />
 							</div>
 
-							<div class="item">
-								<label for="date">Date? (will you go with me?)</label>
-								<input type="text" id="date" />
+							<div class="item item-date">
+								<label for="date-horse">Date? (will you go with me?)</label>
+								<input type="text" id="date-horse" data-errorMsg="Vyplňte datum" />
 							</div>
 
-							<div class="item">
-								<label for="mail">Your e-mail</label>
-								<input type="email" id="mail" />
+							<div class="item item-mail">
+								<label for="mail-horse">Your e-mail</label>
+								<input type="email" class="mail" id="mail-horse" data-errorMsg="Vyplňte e-mail" />
 							</div>
 
 							<div class="item item-message">
-								<label for="message">Your message</label>
-								<textarea id="message"></textarea>
+								<label for="message-horse">Your message</label>
+								<textarea id="message-horse" data-errorMsg="Vyplňte zprávu"></textarea>
 							</div>
 
 							<div class="item">
@@ -293,7 +295,7 @@
 	</section>
 
 	<section class="bottomCarousel">
-		bottom carousel
+		<img src="www/assets/images/img-carousel-bottom-1.jpg" alt="první slide" />
 	</section>
 
 	<footer class="footer">
@@ -305,5 +307,11 @@
 			</article>
 		</div>
 	</footer>
+
+	<script>
+		$(function() {
+			$( ".datepicker" ).datepicker();
+		});
+	</script>
 </body>
 </html>

@@ -7,8 +7,6 @@ body {
 h1 {
 	font-size: 22px;
 	line-height: 24px;
-	//font-size: 28px;
-	//line-height: 30px;
 }
 
 h2 {
@@ -16,9 +14,6 @@ h2 {
 	font-size: 22px;
 	line-height: 24px;
 	padding-bottom: 25px;
-
-	//font-size: 28px;
-	//line-height: 36px;
 }
 
 h3 {
@@ -44,5 +39,20 @@ a {
 		&:hover {
 			text-decoration: none;
 		}
+	}
+}
+
+@media (min-width: $bigTablet) {
+	h2 {
+		font-size: 28px;
+		line-height: 36px;
+		padding-bottom: 26px;
+	}
+}
+
+@media (min-width: $desktop) {
+	h1 {
+		font-size: 28px;
+		line-height: 30px;
 	}
 }

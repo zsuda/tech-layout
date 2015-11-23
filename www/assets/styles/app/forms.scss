@@ -13,6 +13,14 @@
 		padding-left: 15px;
 		padding-right: 15px;
 		margin-bottom: 15px;
+
+		&:focus {
+			border-color: #784D2B;
+		}
+		
+		&.error {
+			border-color: #aa0000;
+		}
 	}
 
 	input {
@@ -26,6 +34,18 @@
 			margin-top: 16px;
 			height: auto;
 			padding: 10px 32px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #784D2B;
+				border-color: #784D2B;
+			}
+		}
+
+		&.datepicker {
+			background-image: url('#{$imgPath}icon-calendar.png');
+			background-position: 96% center;
+			background-repeat: no-repeat;
 		}
 	}
 
@@ -37,9 +57,42 @@
 		resize: none;
 	}
 
+	.errorMessage {
+		@include fontWeight(600);
+		color: #aa0000;
+		margin: -12px 0 10px 10px;
+	}
+
 	.item {
 		&-message {
 			margin-top: 14px;
+		}
+	}
+}
+
+@media (min-width: $bigTablet) {
+	.form {
+		.item {
+			width: 410px;
+
+			&-name, &-date {
+				float: left;
+			}
+
+			&-date {
+				width: 250px;
+				margin-left: 60px;
+			}
+
+			&-main {
+				clear: left;
+			}
+		}
+
+		input {
+			&[type=submit] {
+				width: auto;
+			}
 		}
 	}
 }

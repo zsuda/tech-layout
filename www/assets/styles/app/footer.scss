@@ -11,3 +11,35 @@
 		color: inherit;
 	}
 }
+
+@media (min-width: $smallTablet) {
+	.footer {
+		padding: 14px 0;
+
+		h2 {
+			display: inline-block;
+			padding-bottom: 0;
+		}
+
+		h2, a {
+			margin-right: 50px;
+		}
+	}
+}
+
+@media (min-width: $desktop) {
+	.footer {
+		h2, a {
+			margin-right: 108px;
+		}
+
+		h2 {
+			margin-left: -15px;
+		}
+
+		a {
+			font-size: 28px;
+			padding: 0;
+		}
+	}
+}

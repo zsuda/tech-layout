@@ -26,7 +26,7 @@
 			}
 
 			&:hover, &.active {
-				border-color: #000;
+				border-color: $black;
 
 				//padding-left: 25px;
 			}
@@ -49,6 +49,29 @@
 
 		&.active {
 			display: block;
+		}
+	}
+}
+
+@media (min-width: $desktop) {
+	.tabs {
+		margin-left: 0;
+		margin-right: 0;
+		
+		.tabBookmarks {
+			.item {
+				&.first {
+					border-left: 2px solid $black;
+				}
+
+				&.last {
+					border: 2px solid #818181;
+				}
+
+				&.active {
+					border-bottom: 0;
+				}
+			}
 		}
 	}
 }
