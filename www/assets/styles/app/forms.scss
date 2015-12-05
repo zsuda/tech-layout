@@ -6,6 +6,15 @@
 		padding: 0 0 13px 10px;
 	}
 
+	.invalid {
+		input, textarea {
+			&:required:invalid {
+				border-color: #aa0000;
+				background-color: #B0888B;
+			}
+		}
+	}
+
 	input, textarea {
 		border: 2px solid #936132;
 		font-size: 18px;
@@ -14,12 +23,12 @@
 		padding-right: 15px;
 		margin-bottom: 15px;
 
-		&:focus {
+		&:focus, &:valid {
 			border-color: #784D2B;
 		}
-		
-		&.error {
-			border-color: #aa0000;
+
+		&:valid {
+			border-color: green;
 		}
 	}
 
@@ -28,6 +37,7 @@
 
 		&[type=submit] {
 			@include fontWeight(600);
+			border-color: #936132;
 			text-transform: uppercase;
 			background-color: #936132;
 			color: $white;

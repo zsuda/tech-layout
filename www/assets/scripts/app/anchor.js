@@ -1,78 +1,131 @@
 anchor = {
-	clearHash: null,
-	menuItems: null,
-	headerOffset: 0,
 	isAnimated: false,
+	classActive: 'active',
+	clearHash: null,
+	hash: window.location.hash,
+	tempHash: null,
+	scrollTop: 0,
+	menuItem: null,
+	headerHeight: 0,
+
+	section: null,
 
 	__prepareVars: function() {
-		this.menuItems = 'header nav a';
+		this.scrollTop = helper.scrollTop();
+		this.menuItem = '.menu a';
+		this.header = '.header';
 
-		this.setHeaderOffset();
+		this.headerHeight = $(this.header).outerHeight();
+
+		this.__addListeners();
 	},
 
-	__listeners: function() {
+	__addListeners: function() {
 		var _self = this;
 
-		$(document).on('click', 'a[href*=#]', function(e) {
+		$(document).on('click', _self.menuItem, function(e) {
 			e.preventDefault();
 
-			if(_self.isAnimated == false) {
-				_self.isAnimated = true;
-				_self.clearHash = $(this).attr('href').replace('#','');
-				_self.scrollToSection(_self.clearHash);
-			}
+			_self.hash = $(this).attr('href');
+			_self.__setClearHash();
+			_self.__setTempHash();
+			_self.__setActiveMenuItem();
+			_self.isAnimated = true;
+			_self.scrollToSection();
+		});
+
+		$(window).on('scroll', function() {
+			_self.scrollTop = helper.scrollTop();
+			_self.__getVisibleSection();
 		});
 
 		$(window).on('resize', function() {
-			_self.setHeaderOffset();
+			_self.headerHeight = $(_self.header).outerHeight();
 		});
 	},
 
-	setHeaderOffset: function() {
-		if(window.helper.windowWidth() < 990) {
-			this.headerOffset = 88;
+	__setClearHash: function() {
+		if(this.hash.indexOf('#_') > -1) {
+			this.clearHash = this.hash.replace('#_', '');
 		}
 		else {
-			this.headerOffset = 0;
+			this.clearHash = this.hash.replace('#', '');
 		}
 	},
 
-	scrollToSection: function(hash) {
-		var _self = this;
-		this.clearHash = hash.replace('#_', '');
+	__setActiveMenuItem: function(setActive) {
+		if(setActive) {
+			$(this.menuItem).first().addClass(this.classActive);
+		}
+		else {
+			$(this.menuItem).removeClass(this.classActive);
+			$(this.menuItem + '[href*=' + this.clearHash + ']').addClass(this.classActive);
+		}
+	},
 
-		var offset = $('#' + this.clearHash).offset().top;
+	__setTempHash: function() {
+		window.location.hash = '#_' + this.clearHash;
+	},
+
+	scrollToSection: function() {
+		var _self = this;
+		var offset = $('#' + this.clearHash).offset().top - _self.headerHeight;
 
 		$('html,body').animate({scrollTop: offset}, 'slow', function(){
-			window.location.hash = '#_' + _self.clearHash;
 			_self.isAnimated = false;
 		});
-		this.setMenuItemActive();
 	},
 
-	setMenuItemActive: function() {
-		$(this.menuItems).removeClass('active');
-		if(this.clearHash != 'home') {
-			$(this.menuItems + '[href*=' + this.clearHash + ']').addClass('active');
-		}
-		else {
-			$(this.menuItems).first().addClass('active');
+	__getVisibleSection: function() {
+		var _self = this;
+		var closest = 0;
+		var next = 0;
+		var visibleSection = 'question';
+		var nextSection = null;
+
+		if(_self.isAnimated === false)
+		{
+			$('section').each(function(index)
+			{
+				if(helper.scrollTop() > $(this).offset().top - _self.headerHeight - 5)
+				{
+					closest = index;
+				}
+
+				if(helper.scrollTop() > $(this).offset().top)
+				{
+					next = index + 1;
+				}
+			});
+
+			visibleSection = $('section').eq(closest).attr('id');
+			nextSection = $('section').eq(next).attr('id');
+
+			if(_self.section !== visibleSection)
+			{
+				_self.section = visibleSection;
+				_self.clearHash = visibleSection;
+				_self.__setActiveMenuItem();
+				_self.__setTempHash();
+				var positionLeft = $(window.cursorFollower.activeItem).parents('li').position().left;
+				var width = $(window.cursorFollower.activeItem).outerWidth();
+				$(window.cursorFollower.animateBorder(positionLeft, width));
+			}
 		}
 	},
 
 	init: function() {
 		this.__prepareVars();
-		this.setHeaderOffset();
 
-		if((window.location.hash != '')) {
-			this.scrollToSection(window.location.hash);
-			$(this.menuItems + '[href*=' + window.location.hash + ']').addClass('active');
+		if(window.location.hash == '') {
+			this.__setActiveMenuItem(true);
 		}
 		else {
-			$(this.menuItems).first().addClass('active');
+			this.__setClearHash();
+			this.__setTempHash();
+			this.__setActiveMenuItem();
+			this.scrollToSection();
 		}
-
-		this.__listeners();
 	}
 };
 

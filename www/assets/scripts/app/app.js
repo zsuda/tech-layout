@@ -11,6 +11,7 @@ $(window).on('load', function() {
 	tabs.init();
 	anchor.init();
 	cursorFollower.init();
+	window.cursorFollower = cursorFollower;
 	formValidation.init();
 	features.init();
 });

@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 	<script type="text/javascript" src="www/vendors/bower/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="www/assets/scripts/modernizr.js"></script>
 	<script type="text/javascript" src="www/assets/scripts/scripts.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -180,41 +181,45 @@
 			</h2>
 
 			<div class="list">
-				<article class="item odd">
-					<h3>Jonas Horselover</h3>
-					<p>
-						Doesnt know but had sex with a horse and it was fine he thinks...
-					</p>
+				<div class="row">
+					<article class="item odd">
+						<h3>Jonas Horselover</h3>
+						<p>
+							Doesnt know but had sex with a horse and it was fine he thinks...
+						</p>
 
-					<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
-				</article>
+						<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
+					</article>
 
-				<article class="item even">
-					<h3>Jonas Horselover</h3>
-					<p>
-						Doesnt know but had sex with a horse and it was fine he thinks...
-					</p>
+					<article class="item even">
+						<h3>Jonas Horselover</h3>
+						<p>
+							Doesnt know but had sex with a horse and it was fine he thinks...
+						</p>
 
-					<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
-				</article>
+						<a href="#" class="button button-brown tdu" title="odkaz na See the whole report">See the whole report</a>
+					</article>
+				</div>
 
-				<article class="item odd item-with-image">
-					<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
-					<p>
-						Tried to ride a seal once and it was NOT a good idea. Almost got arrested for animal harrasment.
-					</p>
+				<div class="row">
+					<article class="item odd item-with-image">
+						<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
+						<p>
+							Tried to ride a seal once and it was NOT a good idea. Almost got arrested for animal harrasment.
+						</p>
 
-					<a href="#" class="button button-brown button-with-arrow tdu tar" title="odkaz na See the whole report"><span class="arrow arrow-before">See the whole report</span></a>
-				</article>
+						<a href="#" class="button button-brown button-with-arrow tdu tar" title="odkaz na See the whole report"><span class="arrow arrow-before">See the whole report</span></a>
+					</article>
 
-				<article class="item even item-with-image">
-					<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
-					<p>
-						Tried to ride a seal once and it was NOT a good idea
-					</p>
+					<article class="item even item-with-image">
+						<h3><img src="www/assets/images/img-person.jpg" width="91" height="66" alt="obrázek Rickki Diver">Rickki Diver</h3>
+						<p>
+							Tried to ride a seal once and it was NOT a good idea
+						</p>
 
-					<a href="#" class="button button-brown button-with-arrow tdu tal" title="odkaz na See the whole report"><span class="arrow arrow-after">See the whole report</span></a>
-				</article>
+						<a href="#" class="button button-brown button-with-arrow tdu tal" title="odkaz na See the whole report"><span class="arrow arrow-after">See the whole report</span></a>
+					</article>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -233,25 +238,33 @@
 
 				<div class="tabContent" data-tab-content="seal">
 					<div class="form">
-						<form>
+						<form class="validate-form">
 							<div class="item item-name">
 								<label for="name-seal">Your Name</label>
-								<input type="text" id="name-seal" data-errorMsg="Vyplňte jméno" />
+								<input type="text" id="name-seal" required
+								       oninvalid="setCustomValidity('Zadejte jméno ve správném tvaru')"
+								       onchange="try{setCustomValidity('')}catch(e){}" />
 							</div>
 
 							<div class="item item-date">
 								<label for="date-seal">Date? (will you go with me?)</label>
-								<input type="text" id="date-seal" class="datepicker" data-errorMsg="Vyplňte datum" />
+								<input type="text" id="date-seal" class="datepicker" required
+								       oninvalid="setCustomValidity('Zadejte datum ve správném tvaru mm/dd/rrrr')"
+								       onchange="try{setCustomValidity('')}catch(e){}"
+								       pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
 							</div>
 
 							<div class="item item-mail">
 								<label for="mail-seal">Your e-mail</label>
-								<input type="email" class="mail" id="mail-seal" data-errorMsg="Vyplňte e-mail" />
+								<input type="email" class="mail" id="mail-seal" required
+								       oninvalid="setCustomValidity('Zadejte e-mail ve správném tvaru uzivatel@domena.cz')"
+								       onchange="try{setCustomValidity('')}catch(e){}"
+								       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
 							</div>
 
 							<div class="item item-message">
 								<label for="message-seal">Your message</label>
-								<textarea id="message-seal" data-errorMsg="Vyplňte zprávu"></textarea>
+								<textarea id="message-seal" required></textarea>
 							</div>
 
 							<div class="item">
@@ -266,22 +279,30 @@
 						<form>
 							<div class="item item-name">
 								<label for="name-horse">Your Name</label>
-								<input type="text" id="name-horse" data-errorMsg="Vyplňte jméno" />
+								<input type="text" id="name-horse" required
+								       oninvalid="setCustomValidity('Zadejte jméno ve správném tvaru')"
+								       onchange="try{setCustomValidity('')}catch(e){}" />
 							</div>
 
 							<div class="item item-date">
 								<label for="date-horse">Date? (will you go with me?)</label>
-								<input type="text" id="date-horse" data-errorMsg="Vyplňte datum" />
+								<input type="text" id="date-horse" class="datepicker" required
+								       oninvalid="setCustomValidity('Zadejte datum ve správném tvaru mm/dd/rrrr')"
+								       onchange="try{setCustomValidity('')}catch(e){}"
+								       pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
 							</div>
 
 							<div class="item item-mail">
 								<label for="mail-horse">Your e-mail</label>
-								<input type="email" class="mail" id="mail-horse" data-errorMsg="Vyplňte e-mail" />
+								<input type="email" class="mail" id="mail-horse" required
+								       oninvalid="setCustomValidity('Zadejte e-mail ve správném tvaru uzivatel@domena.cz')"
+								       onchange="try{setCustomValidity('')}catch(e){}"
+								       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
 							</div>
 
 							<div class="item item-message">
 								<label for="message-horse">Your message</label>
-								<textarea id="message-horse" data-errorMsg="Vyplňte zprávu"></textarea>
+								<textarea id="message-horse" required></textarea>
 							</div>
 
 							<div class="item">

@@ -5,6 +5,10 @@ var helper = {
 
 	scrollTop: function() {
 		return $(window).scrollTop();
+	},
+
+	windowHeight: function() {
+		return $(window).height();
 	}
 };
 
