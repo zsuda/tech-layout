@@ -18,6 +18,6 @@ formValidation = {
 			});
 		}
 	}
-}
+};
 
 module.exports = formValidation;

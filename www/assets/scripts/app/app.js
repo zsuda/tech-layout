@@ -5,6 +5,7 @@ var tabs = require('./tabs');
 var anchor = require('./anchor');
 var cursorFollower = require('./cursorFollower');
 var features = require('./features');
+var carousel = require('./carousel');
 
 $(window).on('load', function() {
 	window.helper = helper;
@@ -14,4 +15,7 @@ $(window).on('load', function() {
 	window.cursorFollower = cursorFollower;
 	formValidation.init();
 	features.init();
+
+	$('.mainCarousel .carousel').carousel({transition: 'slide'});
+	//$('.bottomCarousel .carousel').carousel({transition: 'fade'});
 });
